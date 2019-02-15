@@ -1,13 +1,9 @@
-import getApp from './server/app';
+import app from './server/app';
 
-try {
-  const app = getApp();
-  const port = process.env.PORT || 3000;
+app.set('port', process.env.PORT || 3000);
+app.set('trust proxy', true);
 
-  app.listen(port, () => {
-    console.log(`App running on http://localhost:${port}/`);
-  });
-} catch (err) {
-  console.error(err);
-  process.exit(1);
-}
+app.listen(app.get('port'), (err?: Error) => {
+  if (err) throw err;
+  console.log(`> Ready on http://localhost:${app.get('port')}`);
+});

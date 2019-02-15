@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "noEmit": true
+  },
+  "include": ["src/react-app-env.d.ts"]
+}
